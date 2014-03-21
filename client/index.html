@@ -15,9 +15,10 @@
     
     <script src="js/vendor/jquery.min.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
-    <script src="js/vendor/angular.min.js"></script>
-    <script src="js/vendor/angular-resource.min.js"></script>
-    <script src="js/vendor/angular-route.min.js"></script>
+    <script src="js/vendor/angular.js"></script>
+    <script src="js/vendor/angular-route.js"></script>
+    <script src="js/vendor/angular-resource.js"></script>
+    <script src="js/controllers.js"></script>
     <script src="js/app.js"></script>
 </head>
 <body>
@@ -62,7 +63,7 @@
 					<div class="tab-pane active in" id="events-list" ng-controller="EventsListCtrl">
 						<ul class="events">
 							<li ng-repeat="event in events | filter:query">
-								<a href="#1">{{ event.name }}</a>
+								<a href="#/event/1">{{ event.name }}</a>
 								<p><small>{{ event.date }}</small></p>
 							</li>
 						</ul>
@@ -77,7 +78,9 @@
 				</div>
 			</div>
 			<div id="content-block" class="col-lg-8">
-				<div id="map-canvas" />
+				<div ng-view>
+					
+				</div>
 			</div>
 		</div>
 	</div>
