@@ -20,4 +20,7 @@
 | GET | /places/{type}/{name} | - | {place_structure} | /places/cafes/Olivio | {place_structure} | - | Получение описания одного нового места |
 | PUT | /places/{type}/{name} | {place_structure} | {place_structure} | /places/cafes/Olivio | {place_structure} | {place_structure} | Обновить информацию о новом месте |
 | DELETE | /places/{type}/{name} | - | - | /places/cafes/Olivio | - | - | Удалить Новое место |
-
+| GET | /wishlist/ | - | [{(event OR place)_1}, ...] | /wishlist | [{event_structure}, {place_structure}] | - | Получение списка мест или мероприятий, которые отмечены "Хочу попробовать"|
+| GET | /wishlist/{events OR places}/ | - | [{(event OR place)_1}, ...] | /wishlist/events/ | [{event_structure}] | - | Получение списка или мест, или мероприятий, которые отмечены "Хочу попробовать"|
+| POST | /wishlist/ | {(event OR place)} | {(event OR place)} | /wishlist/ | {(event OR place)} | {(event OR place)} | Добавление в список места или мероприятия, которое отмечено "Хочу попробовать"|
+| DELETE | /wishlist/{events OR places}/{type}/{name} | - | - | /wishlist/places/cafe/Olivio | - | - | Удалить место или мероприятие из списка, отмеченных "Хочу попробовать" |
