@@ -1,3 +1,6 @@
+HintList REST API Documentation
+===============================
+
 | Method | Route | Request body | Response | Example URL | Example Response | Example Request Body | Description |
 | ------ |:-------:|:-----:|:------:|:------:|:------:|:-----:|:----:|
 | GET |  /events/  | - | [{event_1}, ... ] | /events/ | [{event_structure}] | - | Получение 1 страницу списка всех мероприятий |
@@ -24,3 +27,47 @@
 | GET | /wishlist/{events OR places}/ | - | [{(event OR place)_1}, ...] | /wishlist/events/ | [{event_structure}] | - | Получение списка или мест, или мероприятий, которые отмечены "Хочу попробовать"|
 | POST | /wishlist/ | {(event OR place)} | {(event OR place)} | /wishlist/ | {(event OR place)} | {(event OR place)} | Добавление в список места или мероприятия, которое отмечено "Хочу попробовать"|
 | DELETE | /wishlist/{events OR places}/{type}/{name} | - | - | /wishlist/places/cafe/Olivio | - | - | Удалить место или мероприятие из списка, отмеченных "Хочу попробовать" |
+
+Event structure
+---------------
+
+```javascript
+{
+	 "name"  : "Event1",
+	 "description" : "Descr1",
+	 "rate"  : 2,
+	 "your_rate"  : 1,
+	 "place"  : {
+	  "name": "Place1",
+	  ...
+	 },
+	 "timestamp"  : 192838272,
+	 "isTriedOut" : true,
+	 "isDesired"  : false,
+	 "type"  : "type1",
+	 "tags"  : ["sleep","rest"]
+}
+```
+
+Place structure
+---------------
+
+```javascript
+{
+	"name"  : "place1",
+	"description" : "Descr1"
+	"rate"  : 2,
+	"your_rate"  : 1,
+	"address"  : {
+		"street": "str. ",
+		"building": 34,
+		"app": null,
+		"longitude": 56.87997,
+		"latitude": 23.92374
+	},
+	"isTriedOut" : true,
+	"isDesired"  : false,
+	"type"  : "type1",
+	"tags"  : ["sleep","rest"]
+}
+```
